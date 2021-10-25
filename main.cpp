@@ -47,8 +47,10 @@ int main() {
             seq = sum;
             par = sum;
         } else {
-            par = std::min(par, sum);
-            block = block_size;
+            if (par > sum) {
+                par = sum;
+                block = block_size;
+            }
         }
         std::cout << block_size << " block size, elapsed " << sum / reps << " milliseconds" << std::endl;
     }
