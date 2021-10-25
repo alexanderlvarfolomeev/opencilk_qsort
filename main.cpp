@@ -29,7 +29,7 @@ int main() {
         uint32_t block_size = sz / i;
 
         for (uint32_t j = 0; j < reps; ++j) {
-            int32_t *x_copy = static_cast<int32_t *>(::operator new(sizeof(int32_t) * sz));
+            auto *x_copy = static_cast<int32_t *>(::operator new(sizeof(int32_t) * sz));
             for (uint32_t k = 0; k < sz; ++k) {
                 x_copy[k] = x[j][k];
             }
@@ -55,11 +55,5 @@ int main() {
         std::cout << block_size << " block size, elapsed " << sum / reps << " milliseconds" << std::endl;
     }
     std::cout << "Best coefficient " << seq / par << " with block size " << block << std::endl;
-    return 0;
-}
-#include <iostream>
-
-int main() {
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
